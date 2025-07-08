@@ -1,5 +1,8 @@
+# head node
+bash ~/startup/run_cluster.sh .cache/vllm-openai_latest.sif balam005 --head $HF_HOME
+
 # run worker node
-apptainer exec --nv -B ${HF_HOME}:/root/.cache/huggingface -B ~ -B ~/project .cache/vllm-openai_latest.sif /bin/bash
+apptainer exec --nv -B ${HF_HOME}:/root/.cache/huggingface -B ~ -B ~/project -B ~/.cache .cache/vllm-openai_latest.sif /bin/bash
 
 # in the worker container, joining head
 #Apptainer>
